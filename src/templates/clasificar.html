@@ -1,0 +1,336 @@
+<ion-modal-view class="contact-modal">
+    <ion-content class="contact-scroll" delegate-handle="content">
+      <div class="top_menu">
+        <div id="navigation_menu">
+          <div id="lines_button" ng-click="openMainMenuFromItem()">
+          </div>
+        </div>
+      </div>
+      <div class="clasificar_title">
+        ¿Cómo clasificar en casa?
+      </div>
+      <div class="clasificar_txt">
+        Proponemos 3 niveles para que clasifiques tus residuos en casa,
+        en función del compromiso que puedas asumir y las soluciones que tengas a tu alcance.
+        Esta clasificación se basa en la <a style="color: black; text-decoration: underline;" ng-click="gotoLink('http://www.unit.org.uy/normalizacion/norma/100000838/')">norma técnica UNIT de Identificación y Clasificación de Residuos nro. 1239:2017 de Uruguay.</a>
+      </div>
+      <div class="clasif_basic_title">
+        Clasificación básica:
+      </div>
+      <div class="clasif_basic_types">
+
+        <div class="trash_type_first_line reciclables" ng-click="clickTipoResiduo('tipo_reciclable','reciclables')">
+          <div class="trash_type_title">
+            Materiales<br/>reciclables
+          </div>
+          <div class="trash_type_img"></div>
+        </div>
+
+        <div class="trash_type_first_line mezclados" ng-click="clickTipoResiduo('tipo_mezclado','mezclados')">
+          <div class="trash_type_title">
+            Residuos<br/>Mezclados
+          </div>
+          <div class="trash_type_img_noclasifica"></div>
+        </div>
+
+      </div>
+
+      <div class="clasif_intermedia_title">
+        Clasificación intermedia:
+      </div>
+      <div class="clasif_basic_types">
+
+        <div class="trash_type_second_line reciclables" ng-click="clickTipoResiduo('tipo_reciclable','reciclables')">
+          <div class="trash_type_title">
+            Materiales reciclables
+          </div>
+          <div class="trash_type_img"></div>
+        </div>
+
+        <div class="trash_type_second_line mezclados" ng-click="clickTipoResiduo('tipo_mezclado','mezclados')">
+          <div class="trash_type_title">
+            Residuos Mezclados
+          </div>
+          <div class="trash_type_img_noclasifica"></div>
+        </div>
+
+        <div class="trash_type_second_line compostables" ng-click="clickTipoResiduo('tipo_compostable','compostables')">
+          <div class="trash_type_title">
+            Residuos <span style="font-size: 9px;">Compostables</span>
+          </div>
+          <div class="trash_type_img_noclasifica"></div>
+        </div>
+
+      </div>
+      <div class="clasif_intermedia_title">
+        Clasificación avanzada:
+      </div>
+      <div class="clasif_basic_types">
+
+        <div class="trash_type_second_line reciclables" ng-click="clickTipoResiduo('tipo_reciclable','reciclables')">
+          <div class="trash_type_title">
+            Materiales reciclables
+          </div>
+          <div class="trash_type_img"></div>
+        </div>
+
+        <div class="trash_type_second_line mezclados" ng-click="clickTipoResiduo('tipo_mezclado','mezclados')">
+          <div class="trash_type_title">
+            Residuos Mezclados
+          </div>
+          <div class="trash_type_img_noclasifica"></div>
+        </div>
+
+        <div class="trash_type_second_line compostables" ng-click="clickTipoResiduo('tipo_compostable','compostables')">
+          <div class="trash_type_title">
+            Residuos <span style="font-size: 9px;">Compostables</span>
+          </div>
+          <div class="trash_type_img_noclasifica"></div>
+        </div>
+
+      <div class="trash_type_second_line plasticos trash_type_margin_top" ng-click="clickTipoResiduo('tipo_reciclable','reciclables')">
+        <div class="trash_type_title">
+          Plásticos
+        </div>
+        <div class="trash_type_img"></div>
+      </div>
+
+      <div class="trash_type_second_line papel_y_carton trash_type_margin_top" ng-click="clickTipoResiduo('tipo_mezclado','reciclables')">
+        <div class="trash_type_title">
+          Papel y<br/> Cartón
+        </div>
+        <div class="trash_type_img"></div>
+      </div>
+
+      <div class="trash_type_second_line metal trash_type_margin_top" ng-click="clickTipoResiduo('tipo_reciclable','reciclables')">
+        <div class="trash_type_title">
+          Metal
+        </div>
+        <div class="trash_type_img"></div>
+      </div>
+
+      <br/>
+
+      <div class="trash_type_second_line vidrio trash_type_margin_top" ng-click="clickTipoResiduo('tipo_reciclable','reciclables')">
+        <div class="trash_type_title">
+          Vidrio
+        </div>
+        <div class="trash_type_img_grey"></div>
+      </div>
+
+      <div class="trash_type_second_line residuos_peligrosos trash_type_margin_top">
+        <div class="trash_type_title">
+          Residuos peligrosos
+        </div>
+        <div class="trash_type_img_noclasifica"></div>
+      </div>
+
+        <div class="avanzada_txt">
+          Se suman otros recipientes específicos, preparando la
+          disposición para otros tipos de residuos como aceite usado,
+          residuos eléctricos y electrónicos, lámparas, etc.
+        </div>
+      </div>
+      <div class="contenido_envase">
+        ¿Qué va en cada recipiente?
+      </div>
+
+      <ion-list>
+        <div class="anchor_hash" id="tipo_reciclable"></div>
+         <div class="tipo_envase reciclables">
+            <ion-item class="item-stable"
+                      ng-click="toggleGroup('reciclables')"
+                      ng-class="{active: isGroupShown('reciclables')}">
+              <div class="envase_img"></div>
+              <div class="envase_name">Materiales reciclables</div>
+              <div class="acordion_action"></div>
+            </ion-item>
+            <ion-item class="item-accordion"
+                      ng-show="isGroupShown('reciclables')">
+
+                      <div class="material plasticos">
+                        <div class="material_title">
+                          Plástico
+                        </div>
+                        <div class="material_txt">
+                          Botellas, Bolsas, Tapas y Envases
+                        </div>
+                      </div>
+
+                      <div class="material papel_y_carton">
+                        <div class="material_title notxt">
+                          Papel y Cartón
+                        </div>
+                      </div>
+
+                      <div class="material vidrio">
+                        <div class="material_title">
+                          Vidrios
+                        </div>
+                        <div class="material_txt">
+                          Botellas y Frascos
+                        </div>
+                      </div>
+
+                      <div class="material metal">
+                        <div class="material_title">
+                          Metales
+                        </div>
+                        <div class="material_txt">
+                          Latas, Conservas y Tapas
+                        </div>
+                      </div>
+
+                      <div class="material long">
+                        <div class="material_title">
+                          Envases compuestos
+                        </div>
+                        <div class="material_txt">
+                          Tetrapacks, cajas de jugo, leche, vino o alimentos, envases metalizados
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title">
+                          Madera
+                        </div>
+                        <div class="material_txt">
+                          Palos, cajas y tablas
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title">
+                          Textiles
+                        </div>
+                        <div class="material_txt">
+                          Ropas y trapos
+                        </div>
+                      </div>
+
+                      <div class="envase_txt">
+                        Todos los materiales que pueden ser valorizados
+                      </div>
+            </ion-item>
+         </div>
+
+         <div class="anchor_hash" id="tipo_mezclado"></div>
+         <div  class="tipo_envase mezclados">
+            <ion-item class="item-stable"
+                      ng-click="toggleGroup('mezclados')"
+                      ng-class="{active: isGroupShown('mezclados')}">
+              <div class="envase_img"></div>
+              <div class="envase_name">Residuos Mezclados</div>
+              <div class="acordion_action"></div>
+            </ion-item>
+            <ion-item class="item-accordion"
+                      ng-show="isGroupShown('mezclados')">
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Papel higiénico
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Pañales y Paños húmedos
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Toallas de mano
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Toallas sanitarias
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Cerámicas
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Huesos
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Meterial de barrido
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Colillas de cigarro
+                        </div>
+                      </div>
+
+                      <div class="envase_txt">
+                        Todos los residuos sin alternativa de valorización o de manejo específico
+                      </div>
+
+            </ion-item>
+         </div>
+
+         <div class="anchor_hash" id="tipo_compostable"></div>
+         <div class="tipo_envase compostables">
+            <ion-item class="item-stable"
+                      ng-click="toggleGroup('compostables')"
+                      ng-class="{active: isGroupShown('compostables')}">
+              <div class="envase_img"></div>
+              <div class="envase_name">Residuos Compostables</div>
+              <div class="acordion_action"></div>
+            </ion-item>
+            <ion-item class="item-accordion"
+                      ng-show="isGroupShown('compostables')">
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Restos de alimentos
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Hojas secas
+                        </div>
+                      </div>
+
+                      <div class="material">
+                        <div class="material_title notxt">
+                          Ramas
+                        </div>
+                      </div>
+
+                      <div class="envase_txt">
+                        Todos los residuos provenientes de alimentos vegetales y jardinería.
+                        <br/></br>
+                        Cuidado: no disponer residuos peligrosos como insecticidas.
+                        <br/></br>
+                        <a style="color: white; text-decoration: underline;" ng-click="gotoLink('http://www.cempre.org.uy/index.php?option=com_content&view=article&id=80&Itemid=98')">
+                          Más información sobre "Compostaje en casa"
+                        </a>
+                      </div>
+
+            </ion-item>
+         </div>
+      </ion-list>
+      <div style="padding-top: 20px;" class="clasificar_title">
+        ¿Querés aprender más?
+      </div>
+      <div class="clasificar_txt">
+        Consultá la <a style="color: black; text-decoration: underline;" ng-click="gotoLink('http://www.cempre.org.uy/index.php?option=com_content&view=article&id=76&Itemid=84')">guía de buenas prácticas de CEMPRE.</a>
+      </div>
+      <div class="heightSeparator">
+      </div>
+    </ion-content>
+</ion-modal-view>

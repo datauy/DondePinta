@@ -1,0 +1,31 @@
+{
+  "name": "dondepinta",
+  "app_id": "ef41b0f9",
+  "proxies": [
+    {
+      "path": "/im",
+      "proxyUrl": "http://www.montevideo.gub.uy"
+    },
+    {
+      "path": "/data",
+      "proxyUrl": "http://dondepinta.thor.datauy.org"
+    }
+  ],
+  "gulpStartupTasks": [
+    "default",
+    "watch",
+    "sass"
+  ],
+  "watchPatterns": [
+    "www/**/*",
+    "!www/lib/**/*"
+  ],
+  "browsers": [
+    {
+      "platform": "android",
+      "browser": "crosswalk",
+      "version": "12.41.296.5"
+    }
+  ],
+  "type": "ionic1"
+}

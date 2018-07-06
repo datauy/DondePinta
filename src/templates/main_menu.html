@@ -1,0 +1,31 @@
+<ion-modal-view class="new-report-modal">
+  <div class="main_menu_bg"></div>
+  <div class="main_menu_img"></div>
+  <div class="main_menu_close" ng-click="closeMainMenu()"></div>
+  <div id="menu_items">
+    <div class="menu_item" ng-click="closeMainMenu()">
+      Mapa
+    </div>
+    <div class="menu_item" ng-click="openAboutProyect()">
+      Sobre el proyecto
+    </div>
+    <div class="menu_item" ng-click="openNews()">
+      Noticias
+    </div>
+    <div class="menu_item" ng-click="openClasificar()">
+      Consejos para <br/>
+      clasificar en casa
+    </div>
+    <div class="menu_item" ng-click="openProgramas()">
+      Programas y ciclo <br/>
+      de vida de los residuos
+    </div>
+    <div class="menu_item" ng-click="openContact()">
+      Contacto
+    </div>
+  </div>
+  <div class="menu_item_foot" ng-click="walkthroughFromMenu()">
+    Ver nuevamente el tutorial
+  </div>
+  <div id="menu-spinner" class="menu-spinner hidden"><ion-spinner icon="spiral"></ion-spinner></div>
+</ion-modal-view>

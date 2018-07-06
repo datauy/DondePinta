@@ -1,0 +1,139 @@
+<ion-view title="DondePinta" hide-nav-bar="true">
+
+<div class="top_menu">
+  <div id="navigation_menu">
+    <div id="lines_logo"></div>
+    <div id="lines_button" ng-click="openMainMenu()">
+    </div>
+    <input type="search" id="search_in_dictionary" placeholder="¿Qué cerveza buscás?"
+        ng-model="search_str"
+        ng-change="onSearchChange()" />
+    <div ng-click="focusOnSearch()" id="search_magnifying"></div>
+    <div id="menu_line"></div>
+  </div>
+  <div id="navigation_back" ng-click="nav_back()" class="hidden"></div>
+</div>
+
+<div id="selected_residuo_container" class='selected_residuo hidden'>
+  <div class='residuo_name' id="selected_residuo_name" ng-click="unselect_residuo()"></div>
+  <div class='residuo_action' ng-click="unselect_residuo()">Cerrar</div>
+  <div class='residuo_condition' id='selected_residuo_condition'></div>
+</div>
+
+<div id="searchResults" class="hidden">
+  <ion-scroll id="searchResults_scroll" scrollX="false" scrollY="true">
+    <div class='residuo' ng-repeat="item in residuosArray">
+      <div ng-click="select_residuo({{item}})" class='residuo_name'>{{item.properties.Nombre}}</div>
+      <div ng-click="select_residuo({{item}})" class='residuo_action'>Ver</div>
+      <div class='residuo_condition'>{{item.properties.Condiciones}}</div>
+    </div>
+  </ion-scroll>
+  <div class="noResults" ng-if="residuosArray.length == 0">
+    No hay resultados que coincidan con su búsqueda.
+  </div>
+</div>
+
+
+
+<div ng-click="find_me('16')" id="gps_control" class="control_over_map">
+</div>
+
+<div ng-click="search_street()" id="search_control" class="control_over_map">
+</div>
+
+<!--<div id="spinner" class="intro-spinner"><ion-spinner icon="spiral"></ion-spinner></div>-->
+
+  <ion-content data-tap-disabled="true">
+
+    <leaflet defaults="map.defaults" center="map.center" markers="map.markers" ng-if="map"></leaflet>
+
+  </ion-content>
+
+<div id="foot_bar" class="foot-bar">
+  <div class="street-search-bar">
+    <div class="search-icon"></div>
+    <label class="search-textbox-label">
+        <input ion-autocomplete type="text" id="search-textbox" readonly="readonly" class="ion-autocomplete" autocomplete="off"
+               ng-model="model"
+               external-model="externalModel"
+               selected-items="selectedItems"
+               search-items="preselectedSearchItems"
+               item-value-key="codigo"
+               item-view-value-key="nombre"
+               items-method="searchLocation(query)"
+               placeholder="Ir a: escribir calle."
+               items-clicked-method="itemsClicked(callback)"
+               items-removed-method="itemsRemoved(callback)"
+               cancel-button-clicked-method="itemsCanceled(callback)"
+               max-selected-items="1"
+               select-items-label="Seleccione una calle"
+               manage-externally="true"
+               selected-items-label="Calle"
+               cancel-label="Volver"/>
+    </label>
+  </div>
+</div>
+
+<!--<div id="auspiciantes">
+  <ion-slide-box auto-play="true" does-continue="true" slide-interval="3000" on-slide-changed="slideHasChanged($index);">
+    <ion-slide ng-repeat="patrocinador in patrocinadores track by $index">
+      <div class="container_patrocinador">
+        <div class="div_patrocinador">
+          <div class="apoyan_container">
+            <span class="auspiciantes_txt">
+              Apoyan esta
+              iniciativa
+            </span>
+          </div>
+          <div class="logo_generico">
+            <img src="{{getDrupalURL(patrocinador.logo.uri)}}" />
+          </div>
+        </div>
+      </div>
+    </ion-slide>
+    </ion-slide-box>
+
+  <div class="close_auspiciantes" ng-click="close_auspiciantes()">
+  </div>
+</div>-->
+
+<div id="container_details">
+  <ion-scroll id="details_scroll" scrollX="false" scrollY="true">
+    <!--<div class="program-title">Programa</div>
+    <div class="program-name" ng-click="clickOnProgramaFromPinDetails()">
+      {{selected_container.Tipo}}
+    </div>
+    <div class="container_icon circle" style="background-image: url(./img/icons/{{getIconNameFromContainerPropertyToPinDetails(selected_container.Contenedor)}});">
+    </div>-->
+    <!--<div id="roadAddress" class="roadAddress">
+    </div>-->
+    <div class="direccion">
+      {{selected_container.Nombre}}
+    </div>
+    <div class="direccion2">
+      {{selected_container.Direccion}}
+    </div>
+    <div id="distance" class="distance">
+    </div>
+    <div class="pin_tipo">
+      Tipo: {{selected_container.Tipo}}
+    </div>
+    <!--<div class="watch"></div>
+    <div class="horario_label">Horario</div>
+    <div class="horario_txt">{{selected_container.Horario}}</div>
+    <div class="recibe_img"></div>
+    <div class="recibe_label">Recibe</div>
+    <div style="color: {{getResiduoFontColor(residuo)}}; border-color: {{getResiduoBorderColor(residuo)}}; background-color: {{getResiduoColor(residuo)}};" class="multimaterial" ng-click="openClasificar()" ng-repeat="residuo in selected_container.Recibe track by $index">{{residuo}}</div>
+    <div class="no_recibe_container" ng-if="has_no_recibe()">
+      <div class="no_recibe_img"></div>
+      <div class="no_recibe_label">No recibe</div>
+      <div style="color: {{getResiduoFontColor(residuo)}}; border-color: {{getResiduoBorderColor(residuo)}}; background-color: {{getResiduoColor(residuo)}};" class="multimaterial_no" ng-click="openClasificar()" ng-repeat="residuo in selected_container.No_recibe track by $index">{{residuo}}</div>
+    </div>-->
+    <!--<div class="heightSeparator">
+    </div>-->
+  </ion-scroll>
+</div>
+
+<div id="map-spinner" class="map-spinner hidden"><ion-spinner icon="spiral"></ion-spinner></div>
+
+</ion-view>

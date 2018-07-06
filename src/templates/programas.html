@@ -1,0 +1,77 @@
+<ion-modal-view class="contact-modal">
+    <ion-content class="programas-proyect-scroll"  delegate-handle="content">
+      <div class="top_menu">
+        <div id="navigation_menu">
+          <div id="lines_button" ng-click="openMainMenuFromItem()">
+          </div>
+        </div>
+      </div>
+      <div class="programs_title">
+        Programas y ciclo de vida<br/>de los residuos
+      </div>
+      <div class="programs_txt">
+        A la hora de darle un correcto destino a los residuos que generamos existen varias
+        alternativas en el Uruguay:
+      </div>
+
+      <ion-list>
+          <div class="programa" ng-repeat="programa in programas track by $index">
+            <ion-item class="item-stable"
+                      id="tuenvasesirve"
+                      ng-click="toggleGroup('{{getToggleGroupNamefromProgramName(programa.nombre)}}')"
+                      ng-class="{active: isGroupShown('{{getToggleGroupNamefromProgramName(programa.nombre)}}')}">
+              <div class="program_name">{{programa.nombre}}</div>
+              <div class="programa_short_txt">{{programa.nombre_corto}}</div>
+              <div ng-if="programa.logo!=null" class="programa_img"><img src="{{getDrupalURL(programa.logo.uri)}}"/></div>
+              <div class="acordion_action"></div>
+            </ion-item>
+            <ion-item class="item-accordion"
+                      ng-show="isGroupShown('{{getToggleGroupNamefromProgramName(programa.nombre)}}')">
+                      <div class="cobertura_title">Cobertura</div>
+                      <div class="cobertura_deptos">
+                        <div class="depto" ng-repeat="depto in programa.cobertura">
+                          {{depto.value}}
+                        </div>
+                      </div>
+                      <div class="impulsan_title">Impulsan</div>
+                      <div class="impulsan_txt">
+                        {{getProgramaImpulsanStr(programa.impulsan)}}
+                      </div>
+                      <div class="recibe">
+                        <div class="recibe_logo"></div>
+                        <div class="recibe_title">Recibe</div>
+                      </div>
+                      <div class="recibe_txt">
+                        {{programa.recibe}}
+                      </div>
+                      <div class="norecibe">
+                        <div class="norecibe_logo"></div>
+                        <div class="norecibe_title">Que no recibe</div>
+                      </div>
+                      <div class="norecibe_txt">
+                        {{programa.no_recibe}}
+                      </div>
+                      <div class="condiciones_title">Condiciones de recepción:</div>
+                      <div class="condiciones_txt">
+                        {{programa.condiciones_de_recepcion}}
+                      </div>
+                      <div class="condiciones_title">Más información:</div>
+                      <div class="condiciones_txt"><span ng-click="gotoLink('{{programa.mas_informacion.url}}')">{{programa.mas_informacion.title}}</span></div>
+                      <div class="condiciones_title">Contacto</div>
+                      <div class="condiciones_txt">{{programa.contacto}}</div>
+                      <div class="condiciones_title">Ciclo de vida de los residuos entregados</div>
+                      <div class="condiciones_txt">
+                          {{programa.ciclo_vida_residuos}}
+                      </div>
+                      <div class="condiciones_title">Beneficios sociales y ambientales</div>
+                      <div class="condiciones_txt">
+                          {{programa.beneficios_sociales_ambientales}}
+                      </div>
+            </ion-item>
+          </div>
+    </ion-list>
+
+    <div class="heightSeparator">
+    </div>
+    </ion-content>
+</ion-modal-view>
